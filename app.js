@@ -18,11 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static files
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static('public', {
-  maxAge: '30d',
-  immutable: true
-}));
+app.use(express.static(path.join(__dirname, "public")));
+
 
 app.use((req, res, next) => {
   res.locals.metaTitle =
