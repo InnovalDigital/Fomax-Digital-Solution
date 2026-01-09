@@ -24,16 +24,38 @@ app.use(express.static('public', {
   immutable: true
 }));
 
+app.use((req, res, next) => {
+  res.locals.metaTitle =
+    'Website Development & Digital Marketing Agency in Vadodara | Fomax Digital';
+
+  res.locals.metaDescription =
+    'Fomax Digital is a leading website development and digital marketing agency in Vadodara offering SEO, web design, Google Ads and ecommerce solutions.';
+
+  res.locals.canonicalUrl = req.originalUrl;
+
+  next();
+});
+
 /* =========================
    ROUTES
 ========================= */
 app.get('/', (req, res) => {
-    res.render('index');
+  res.render('index', {
+    metaTitle: 'Website Development & Digital Marketing Agency in Vadodara | Fomax Digital',
+    metaDescription: 'Fomax Digital is a leading website development & digital marketing agency in Vadodara offering SEO, web design, Google Ads & ecommerce solutions.',
+    canonicalUrl: '/'
+  });
 });
 
 app.get('/about', (req, res) => {
-    res.render('about');
+  res.render('about', {
+    metaTitle: 'About Fomax Digital | Website Development Company in Vadodara',
+    metaDescription:
+      'Learn about Fomax Digital, a trusted website development and digital marketing company in Vadodara helping businesses grow online.',
+    canonicalUrl: '/about'
+  });
 });
+
 
 app.get('/contact', (req, res) => {
     res.render('contact');
