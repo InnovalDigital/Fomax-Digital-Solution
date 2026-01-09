@@ -15,7 +15,7 @@ if ($("body").not(".is-mobile").hasClass("tt-magic-cursor")) {
         var $ballWidth = 34; // Ball default width
         var $ballHeight = 34; // Ball default height
         var $ballScale = 1; // Ball default scale
-        var $ballOpacity = 0.5; // Ball default opacity
+        var $ballOpacity =0.5; // Ball default opacity
         var $ballBorderWidth = 2; // Ball default border width
 
         gsap.set($ball, {  // scale from middle and style ball
